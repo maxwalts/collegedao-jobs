@@ -25,7 +25,7 @@ export default function Form({ type }: { type: "login" | "register" }) {
           }).then(({ ok, error }) => {
             setLoading(false);
             if (ok) {
-              router.push("/protected");
+              router.push("/board");
             } else {
               toast.error(error);
             }
@@ -89,11 +89,10 @@ export default function Form({ type }: { type: "login" | "register" }) {
       </div>
       <button
         disabled={loading}
-        className={`${
-          loading
+        className={`${loading
             ? "cursor-not-allowed border-gray-200 bg-gray-100"
             : "border-black bg-black text-white hover:bg-white hover:text-black"
-        } flex h-10 w-full items-center justify-center rounded-md border text-sm transition-all focus:outline-none`}
+          } flex h-10 w-full items-center justify-center rounded-md border text-sm transition-all focus:outline-none`}
       >
         {loading ? (
           <LoadingDots color="#808080" />
