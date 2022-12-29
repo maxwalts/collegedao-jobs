@@ -17,7 +17,7 @@ export default function Home() {
             College DAO job board
           </h1>
           <p className="text-stone-400 mt-5">
-            Community-excusive opportunities
+            Community-exlcusive opportunities
           </p>
         </div>
         <div className="flex space-x-3">
