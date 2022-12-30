@@ -31,6 +31,7 @@ function JobBoard({ jobs, }: { jobs: any[] }) {
   }
 
   const handleSubmit = () => {
+    // TODO: send selectedJobs to backend
     console.log(selectedJobs);
   }
 

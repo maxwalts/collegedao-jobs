@@ -13,12 +13,13 @@ datasource db {
 }
 
 model User {
-  id       Int    @id @default(autoincrement())
-  email    String @unique
-  password String
+  id          Int    @id @default(autoincrement())
+  email       String @unique
+  password    String
+  jobsApplied Job[]
 }
 
-model Jobs {
+model Job {
   id          Int      @id @default(autoincrement())
   company     String
   logo        String
@@ -27,4 +28,6 @@ model Jobs {
   description String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+  User        User?    @relation(fields: [userId], references: [id])
+  userId      Int?
 }

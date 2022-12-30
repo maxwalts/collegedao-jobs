@@ -6,6 +6,7 @@ export default function Home() {
     <div className="flex h-screen bg-black">
       <div className="w-screen h-screen flex flex-col justify-center items-center">
         <Image
+          priority={true}
           width={512}
           height={512}
           src="/logo.png"

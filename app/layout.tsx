@@ -5,7 +5,7 @@ import Toaster from "@/components/toaster";
 import AuthStatus from "@/components/auth-status";
 
 const inter = Inter({
-  variable: "--font-inter",
+  subsets: ['latin']
 });
 
 export default async function RootLayout({
@@ -16,7 +16,7 @@ export default async function RootLayout({
   const AuthStatusDiv = await AuthStatus();
   return (
     <html lang="en">
-      <body className={inter.variable}>
+      <body className="--font-inter">
         <Toaster />
         {AuthStatusDiv}
         {children}
