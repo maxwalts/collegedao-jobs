@@ -1,33 +1,41 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-// sync database with schema: $npx prisma migrate dev --name init
+// sync database with schema: $npx npx prisma migrate dev --name init
 
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
 model User {
-  id          Int    @id @default(autoincrement())
-  email       String @unique
+  id          Int           @id @default(autoincrement())
+  email       String        @unique
   password    String
-  jobsApplied Job[]
+  Application Application[]
 }
 
 model Job {
-  id          Int      @id @default(autoincrement())
+  id          Int           @id @default(autoincrement())
   company     String
   logo        String
   title       String
   category    String
+  city        String
   description String
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  User        User?    @relation(fields: [userId], references: [id])
-  userId      Int?
+  createdAt   DateTime      @default(now())
+  Application Application[]
+}
+
+model Application {
+  id        Int      @id @default(autoincrement())
+  job       Job      @relation(fields: [jobId], references: [id])
+  jobId     Int
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+  createdAt DateTime @default(now())
 }

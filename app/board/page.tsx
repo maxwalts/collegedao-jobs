@@ -4,6 +4,8 @@ import { useState } from "react";
 import Categories from "@/components/board/categories";
 import DetailView from "../../components/board/detail-view";
 import Job from "../../components/board/job";
+import { JobType } from "../../interfaces/main";
+
 
 export default function Home() {
 
@@ -14,9 +16,22 @@ export default function Home() {
   );
 }
 
+async function getJobs() {
+  const res = await fetch("/api/job/edit",
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  )
+    .then(res => res.json());
+  return res;
+}
+
 function JobBoard({ jobs, }: { jobs: any[] }) {
   const [selectedCategory, setSelectedCategory] = useState("all");
-  const defaultJob: Job = { id: -1 };
+  const defaultJob: JobType = { id: -1 };
   const [expandedJob, setExpandedJob] = useState(defaultJob);
 
   const filteredJobs = jobs.filter((job: any) => {
@@ -31,7 +46,6 @@ function JobBoard({ jobs, }: { jobs: any[] }) {
   }
 
   const handleSubmit = () => {
-    // TODO: send selectedJobs to backend
     console.log(selectedJobs);
   }
 
@@ -60,27 +74,14 @@ function JobBoard({ jobs, }: { jobs: any[] }) {
   )
 }
 
-
-
-interface Job {
-  id: number;
-  title?: string,
-  description?: string,
-  company?: string,
-  logo?: string,
-  createdAt?: string,
-  category?: string,
-  location?: string,
-}
-
 const MOCK_JOBS = [
   {
     id: 1,
     title: "Marketing Manager",
-    description: "We are the leading systems integrator for all the major cloud providers including Amazon Web Services, Microsoft Azure, and Google Cloud Platform and we work with over 90% of Fortune 100 companies. Our contributions don’t end with just our clients – as a member of the Linux Foundation, Cloud Native Computing Foundation and Hyperledger Foundation, Accenture is on the forefront of defining the future of cloud and Web3 technologies by contribution and collaboration to the Open-Source community. Accenture is also committed to developing your skills and providing support to shape and grow your future. Our employees agree, as we have been consistently recognized on Fortune's 100 Best Companies To Work For list for 10 consecutive years. We’re looking for a strong and passionate Full Stack Web3 engineer to join our Cloud Native Engineering team. Here at Accenture, we work with the world’s largest companies and government agencies to enable innovation at scale with advanced cloud-native solutions and Web3 / Metaverse initiatives. If you are excited about solving unique and interesting problems and shaping the future of technology, we would love to talk with you. For now, all Accenture business travel, international and domestic, is currently restricted to client-essential sales/delivery activity only. For now, all Accenture business travel, international and domestic, is currently restricted to client-essential sales/delivery activity only. For now, all Accenture business travel, international and domestic, is currently restricted to client-essential sales/delivery activity only. For now, all Accenture business travel, international and domestic, is currently restricted to client-essential sales/delivery activity only.",
+    description: "We are the leading systems integrator for all the major cloud providers including Amazon Web Services, Microsoft Azure, and Google Cloud Platform and we work with over 90% of Fortune 100 companies. Our contributions don’t end with just our clients – as a member of the Linux Foundation, Cloud Native Computing Foundation and Hyperledger Foundation, Accenture is on the forefront of defining the future of cloud and Web3 technologies by contribution and collaboration to the Open-Source community. Accenture is also committed to developing your skills and providing support to shape and grow your future. Our employees agree, as we have been consistently recognized on Fortune's 100 Best Companies To Work For list for 10 consecutive years. We’re looking for a strong and passionate Full Stack Web3 engineer to join our Cloud Native Engineering team. Here at Accenture, we work with the world’s largest companies and government agencies to enable innovation at scale with advanced cloud-native solutions and Web3 / Metaverse initiatives.",
     company: "Company 1",
     logo: "/logo.png",
-    createdAt: "2 days ago",
+    createdAt: "date",
     category: "marketing",
     location: "New York, NY (remote)",
   },

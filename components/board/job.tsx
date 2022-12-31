@@ -23,13 +23,8 @@ export default function Job({ job, onSelectionChange, isExpanded }: { job: any, 
 
   return (
     <div className={jobDivClass}>
-
-      {/* align this image centrally along the y axis: */}
-
-      {/* <div className="flex flex-col justify-center"> */}
       <div className="flex flex-col justify-center">
         <Image
-
           src={job.logo}
           alt="Company logo"
           width={100}
@@ -40,7 +35,7 @@ export default function Job({ job, onSelectionChange, isExpanded }: { job: any, 
       <div className="flex flex-col">
         <p className="text-stone-200 font-bold text-lg"> {job.title}</p>
         <p className="text-stone-400 text-sm"> {job.company}</p>
-        <p className="text-stone-400 text-sm"> {job.location}</p>
+        <p className="text-stone-400 text-sm"> {job.city}</p>
       </div>
 
       <div className="flex flex-col justify-center space-y-4">

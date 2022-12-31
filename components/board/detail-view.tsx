@@ -15,7 +15,7 @@ export default function DetailView({ expandedJob }: { expandedJob: any }) {
     return (
       <div className="w-full h-full rounded border border-slate-700 bg-slate-900 ">
         <div className="flex flex-col text-stone-200">
-          <h1 className="text-2xl font-bold">Please select a post</h1>
+          <h1 className="text-2xl font-bold p-5">Please select a post</h1>
         </div>
       </div>
     );
