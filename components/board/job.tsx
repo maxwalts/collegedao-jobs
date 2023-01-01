@@ -25,7 +25,7 @@ export default function Job({ job, onSelectionChange, isExpanded }: { job: any, 
     <div className={jobDivClass}>
       <div className="flex flex-col justify-center">
         <Image
-          src={job.logo}
+          src="/logo.png"
           alt="Company logo"
           width={100}
           height={100}

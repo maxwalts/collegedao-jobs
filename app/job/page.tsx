@@ -13,7 +13,7 @@ export default function CreateJobForm() {
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
-    const job: Job = {
+    const job: JobType = {
       title,
       company,
       city,
@@ -27,9 +27,15 @@ export default function CreateJobForm() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(job),
-    });
-    const result = await res.json();
-    console.log(result);
+    })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+
+    if (res) {
+      const data = await res.json();
+      console.log(data);
+    }
   };
 
   return (
