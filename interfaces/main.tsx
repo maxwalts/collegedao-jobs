@@ -17,8 +17,9 @@ export interface JobType {
 
 export interface ApplicationType {
   id?: number;
-  job?: Job,
-  user?: User,
+  jobId?: number,
+  userId?: number,
   createdAt?: string,
 }
+
 

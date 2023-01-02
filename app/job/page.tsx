@@ -40,8 +40,10 @@ export default function CreateJobForm() {
 
   return (
     <div className="flex flex-col space-y-5 h-screen w-screen bg-black items-center justify-center">
-      <h1 className="text-stone-200 ">Create a Job Post</h1>
-      <form onSubmit={handleSubmit} className="flex flex-col space-y-5">
+
+      <h1 className="text-stone-200 text-2xl font-bold">Create a Job Post</h1>
+
+      <form onSubmit={handleSubmit} className="flex flex-col space-y-5 bg-slate-900">
         <input
           type="text"
           placeholder="Job Title"
@@ -61,6 +63,7 @@ export default function CreateJobForm() {
           onChange={(e) => setCity(e.target.value)}
         />
         <input
+          className="text-stone-200"
           type="file"
           accept="image/png, image/jpeg"
           placeholder="Company Logo"
@@ -71,7 +74,7 @@ export default function CreateJobForm() {
           value={category}
           onChange={(e) => setCategory(e.target.value)}
         >
-          <option value="all">All</option>
+          <option value="default">Job category</option>
           <option value="technical">Technical</option>
           <option value="design">Design</option>
           <option value="marketing">Marketing</option>
@@ -84,6 +87,7 @@ export default function CreateJobForm() {
         />
         <button className="bg-white" type="submit" onClick={handleSubmit}>Submit</button>
       </form>
+
     </div>
   );
 }
