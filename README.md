@@ -1,4 +1,4 @@
-# College DAO jobs
+# College DAO job board
 This is a simple job board for the College DAO. It's built with Next.js 13 and Tailwind CSS. The data is stored in an SQLite database.
 
 ## /
