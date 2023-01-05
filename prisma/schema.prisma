@@ -38,4 +38,6 @@ model Application {
   user      User     @relation(fields: [userId], references: [id])
   userId    Int
   createdAt DateTime @default(now())
+
+  @@unique([jobId, userId]) // one user can only apply to a job once
 }

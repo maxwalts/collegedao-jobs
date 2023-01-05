@@ -6,7 +6,6 @@ import DetailView from "../../components/board/detail-view";
 import Job from "../../components/board/job";
 import { JobType } from "../../interfaces/main";
 
-
 export default function Home() {
   function handleDeleteJobs() {
     fetch("/api/job/edit",
@@ -77,7 +76,8 @@ function JobBoard({ }) {
   }
 
   const handleCreateApplication = () => {
-    const res = fetch("/api/application/apply",
+
+    const res = fetch("/api/application/user",
       {
         method: "POST",
         headers: {

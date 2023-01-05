@@ -8,11 +8,7 @@ const inter = Inter({
   subsets: ['latin']
 });
 
-export default async function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default async function RootLayout({ children }: { children: React.ReactNode; }) {
   const AuthStatusDiv = await AuthStatus();
   return (
     <html lang="en">

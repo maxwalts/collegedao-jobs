@@ -18,3 +18,10 @@ export default async function AuthStatus() {
     </div>
   );
 }
+
+
+export async function authEmail() {
+  const session = await unstable_getServerSession();
+  console.log(session);
+  return session?.user?.email;
+}
