@@ -23,7 +23,7 @@ export default function Home() {
   }
 
   return (
-    <div className="flex flex-col h-screen w-screen justify-center items-center bg-black">
+    <div className="flex flex-col top-0 left-0 h-screen w-screen justify-center items-center bg-gray-100 dark:bg-gray-900 p-10">
       <JobBoard />
       {/* <button onClick={handleDeleteJobs}>Delete all jobs</button> */}
     </div>
