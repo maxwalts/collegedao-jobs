@@ -27,7 +27,6 @@ export default function AccountHome() {
         </div>
         <Link href="/board" className="text-stone-200 bottom-auto"> 👈 Go back to job board </Link>
       </div>
-
     </div>
   )
 }

@@ -20,8 +20,8 @@ export default async function AuthStatus() {
 }
 
 
-export async function authEmail() {
+export async function authUser() {
   const session = await unstable_getServerSession();
   console.log(session);
-  return session?.user?.email;
+  return session?.user;
 }

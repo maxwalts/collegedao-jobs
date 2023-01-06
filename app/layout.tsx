@@ -3,6 +3,8 @@ import "@/styles/globals.css";
 import { Inter } from "@next/font/google";
 import Toaster from "@/components/toaster";
 import AuthStatus from "@/components/auth-status";
+import { authUser } from "@/components/auth-status";
+import Navbar from '../components/navbar'
 
 const inter = Inter({
   subsets: ['latin']
@@ -10,11 +12,13 @@ const inter = Inter({
 
 export default async function RootLayout({ children }: { children: React.ReactNode; }) {
   const AuthStatusDiv = await AuthStatus();
+  const user = await authUser();
   return (
     <html lang="en">
       <body className="--font-inter">
         <Toaster />
-        {AuthStatusDiv}
+        <Navbar user={user} />
+        {/* {AuthStatusDiv} */}
         {children}
       </body>
     </html>

@@ -22,3 +22,14 @@ yarn install
 yarn dev
 ```
 
+## database
+migrated to supabase
+https://app.supabase.com/project/zhdlpuzmlsqggimrqsoe/database/tables 
+
+## Preview, deploy
+Able to make comments on the preview site, but not on the production site.
+Need to push to production this way because the github action is not working.
+```bash
+npx vercel
+npx vercel --prod
+```
