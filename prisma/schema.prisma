@@ -16,6 +16,8 @@ model User {
   id          Int           @id @default(autoincrement())
   email       String        @unique
   password    String
+  name        String        @default("Anonymous")
+  image       String        @default("https://gravatar.com/avatar/5658ffccee7f0ebfda2b226238b1eb6e?s=400&d=robohash&r=x")
   Application Application[]
 }
 
